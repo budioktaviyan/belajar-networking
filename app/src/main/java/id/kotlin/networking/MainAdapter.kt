@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.api.load
 import id.kotlin.networking.MainAdapter.MainViewHolder
 import kotlinx.android.synthetic.main.item_main.view.*
 
@@ -31,6 +32,7 @@ class MainAdapter(private val results: List<Result>) : Adapter<MainViewHolder>()
       with(itemView) {
         tv_title.text = result.title
         tv_overview.text = result.overview
+        iv_poster.load("${BuildConfig.IMAGE_URL}/${result.posterPath}")
       }
     }
   }
